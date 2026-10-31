@@ -13,13 +13,11 @@ import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.LinearGradient
 import android.graphics.Shader
-import android.view.View
 import android.graphics.PixelFormat
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.os.IBinder
 import android.view.Gravity
-import android.view.View
 import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -135,7 +133,7 @@ private class HackerAvatarView(context: android.content.Context) : View(context)
         paint.shader = null; paint.color = 0xFF101A3B.toInt(); canvas.drawCircle(w/2, h/2, w*.43f, paint)
         val hood = Path().apply { moveTo(w*.5f,h*.13f); cubicTo(w*.20f,h*.18f,w*.10f,h*.55f,w*.16f,h*.84f); lineTo(w*.84f,h*.84f); cubicTo(w*.90f,h*.55f,w*.80f,h*.18f,w*.5f,h*.13f); close() }
         paint.shader = LinearGradient(0f, h*.1f, w, h*.9f, 0xFF07142D.toInt(), 0xFF45116D.toInt(), Shader.TileMode.CLAMP); canvas.drawPath(hood, paint); paint.shader = null
-        val face = Path().apply { moveTo(w*.27f,h*.46f); quadraticTo(w*.5f,h*.30f,w*.73f,h*.46f); lineTo(w*.65f,h*.72f); quadraticTo(w*.5f,h*.82f,w*.35f,h*.72f); close() }
+        val face = Path().apply { moveTo(w*.27f,h*.46f); quadraticTo(w*.5f,h*.30f,w*.73f,h*.46f); lineTo(w*.65f,h*.72f); quadTo(w*.5f,h*.82f,w*.35f,h*.72f); close() }
         paint.color = 0xFF020817.toInt(); canvas.drawPath(face, paint)
         paint.color = 0xFF25DFFF.toInt(); paint.strokeWidth = w*.055f; paint.strokeCap = Paint.Cap.ROUND
         canvas.drawLine(w*.34f,h*.52f,w*.46f,h*.56f,paint); canvas.drawLine(w*.54f,h*.56f,w*.66f,h*.52f,paint)
